@@ -1,0 +1,41 @@
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bootstrap CRUD Data Table for Database with Modal Form</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+    
+<form>
+ <div class="form-group">
+<label for="firstName">First Name</label>
+<input required ngModel  name="firstName" #firstName="ngModel" value={{person.firstName}}  id="firstName" type="text" class="form-control">
+<div class="alert alert-danger" *ngIf="firstName.touched && !firstName.valid">This field is required</div>
+</div>
+
+<div class="form-group">
+<label for="lastName">Last Name</label>
+<input required ngModel name="lastName" #lastName="ngModel" value={{person.lastName}} id="lastName" type="email" class="form-control">
+<div class="alert alert-danger" *ngIf="lastName.touched && !lastName.valid">This field is required</div>
+</div>
+
+<div class="form-group">
+<label for="email">Email</label>
+<input required ngModel name="email" #email="ngModel" id="email" value={{person.email}} type="email" class="form-control">
+<div class="alert alert-danger" onchange="onChange(value)" *ngIf="email.dirty && email.invalid">Invalid email format</div>
+<div class="alert alert-danger" *ngIf="email.touched && !email.valid">This field is required</div>
+</div>
+
+<button routerLink="" type="submit" (click)="onClickSubmit(firstName.value, lastName.value, email.value)" [disabled]="firstName.invalid || lastName.invalid || email.invalid" class="btn btn-primary">Submit</button> 
+<button routerLink="" id="Cancel" class="btn btn-default">Cancel</button> 
+
+</form>
+</body>
