@@ -39,7 +39,7 @@ export class PersonFormComponent implements OnInit{
   };
 
   public updatePerson(person : Person){
-    this.personService.updatePerson(person).subscribe((response : Person) =>{
+    this.personService.updatePerson(this.personId, person).subscribe((response : Person) =>{
 },
 (error: HttpErrorResponse) => {
 alert(error.message);

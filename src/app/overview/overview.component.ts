@@ -44,7 +44,7 @@ alert(error.message);
   }
 
   public updatePerson(person : Person){
-    this.personService.updatePerson(person).subscribe((response : Person) =>{
+    this.personService.updatePerson(person.id, person).subscribe((response : Person) =>{
 this.getPersons();},
 (error: HttpErrorResponse) => {
 alert(error.message);

@@ -26,8 +26,8 @@ public addPerson(person: Person): Observable<Person>{
     return this.http.post<Person>(`${this.apiServerUrl}`, person)
   }
 
-public updatePerson(person: Person): Observable<Person>{
-    return this.http.put<Person>(`${this.apiServerUrl}`, person)
+public updatePerson(id : number, person: Person): Observable<Person>{
+    return this.http.put<Person>(`${this.apiServerUrl}/${id}`, person)
   }
 
 public deletePerson(id : number): Observable<void>{
